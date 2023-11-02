@@ -12,9 +12,12 @@ import { SetCurrentUser } from "@/redux/usersSlice";
 import { useSelector, useDispatch } from 'react-redux'
 import Filters from '@/components/Filters';
 import moment from 'moment';
+import Banner from "@/components/Banner"
+import Footer from '@/components/Footer';
+import HeroCarousel from '@/components/HeroCarousel';
 
 export default function Home() {
-
+   
  
   const [filters, setFilters] = useState({
     searchText: "",
@@ -57,19 +60,21 @@ export default function Home() {
 
   return (
     <main className="text-light-1">
-   
-    <h1 className='text-3xl  mb-4 text-gray-100 
-    bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500
+     {/*<Banner/>*/} 
+    <h1 className='text-3xl  mb-1 text-gray-100 
+    bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-indigo-500
      text-center pb-2'>
      <b>Welcome To Jobs Mela</b></h1>
      
-    <hr className='border-dashed border-4 border-indigo-200 border-b-yellow-500'/>
+    <hr className='border-dashed border-auto border-indigo-200 pb-3'/>
+
+    {/* <HeroCarousel/> */}
        
      <div className=''>
      <Filters filters={filters} setFilters={setFilters} getData={fetchJobs} />
      </div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 pb-9">
   {filteredJobs.map((job) => (
     <div className="p-2 border border-white rounded-md shadow-lg shadow-indigo-500/50
      hover:shadow-blue hover:scale-105 hover:bg-violet-800 duration-300 cursor-pointer" 
@@ -113,7 +118,8 @@ export default function Home() {
     </div>
   ))}
 </div>
- 
+   <hr className='border-dashed border-auto  border-b-indigo-500 pb-3'/>
+      <Footer/>
     </main>
   )
 }

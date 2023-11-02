@@ -20,7 +20,8 @@ const Jobs = () => {
 
   const [selectedJob, setSelectedJob] = useState({});
   const [showApplications, setShowApplications] = useState(false);
-   
+    
+  
 
   const { currentUser } = useSelector((state) => state.users);
 
@@ -73,21 +74,24 @@ const Jobs = () => {
     //   },
   
     //  ];
-   
     const deleteJob = async (jobId) => {
-      try {
-        setLoading(true);
-        const response = await axios.delete(`/api/jobs/${jobId}`);
-        toast.success("Job Deleted successfully");
-        fetchJobs();
-      } catch (error) {
-        toast.message.error(error.message);
-      } finally {
-        setLoading(false);
+      const confirmDelete = window.confirm("Are you sure you want to delete this job?");
+      
+      if (confirmDelete) {
+        try {
+          setLoading(true);
+          const response = await axios.delete(`/api/jobs/${jobId}`);
+          toast.success("Job Deleted successfully");
+          fetchJobs();
+        } catch (error) {
+          toast.error(error.message);
+        } finally {
+          setLoading(false);
+        }
       }
     };
-
-
+      
+ 
   return (
     <div className=''>
     {loading && <div className="loading loading-spinner loading-lg"></div>}
@@ -140,12 +144,12 @@ const Jobs = () => {
            <td className="px-6 py-4 whitespace-nowrap text-light-1">
              <div className="flex gap-3">
              
-               <div className="tooltip tooltip-primary" data-tip="Delete">
-               <button className="btn text-light-1">
-               <i className="ri-delete-bin-6-line text-white-1" onClick={() => deleteJob(job._id)}></i>
-               </button>
-             </div>
-            
+             <div className="tooltip tooltip-primary" data-tip="Delete">
+             <button className="btn text-light-1">
+             <i className="ri-delete-bin-6-line text-white-1" onClick={() => deleteJob(job._id)}></i>
+             </button>
+           </div>
+
               <div className="lg:tooltip" data-tip="Edit">
               <button className="btn">
               <i className="ri-pencil-line" onClick={() => router.push(`/jobs/edit/${job._id}`)}></i>

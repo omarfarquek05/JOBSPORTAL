@@ -168,7 +168,9 @@ if (jobData === null) {
               className='bg-indigo-800 text-white px-2 py-1 rounded-md mr-2 outline outline-gray-50 cursor-pointer'
                 type="primary"
                 onClick={onApply}              
-               disabled={ currentUser.userType === "employer" || applications.length > 0 }
+                disabled={
+                  currentUser.userType === "employer" || applications.length > 0
+                }
               >
                 Apply
               </button>

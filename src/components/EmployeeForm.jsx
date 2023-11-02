@@ -1,5 +1,6 @@
+"use client"
 
-import React from 'react';
+import { useState } from 'react';
 
 const EmployeeForm = ({
   register,
@@ -14,13 +15,17 @@ const EmployeeForm = ({
   experienceFields,
   appendExperience,
   removeExperience,
+  projectFields,
+  appendProject,
+removeProject,
+
 }) => {
 
-
+  
   return (
     <div className="text-light-1">
       <div className="">
-        <label className="block text-gray-700" htmlFor="name"> Name </label>
+        <label className="block text-light-1" htmlFor="name"> Name </label>
         <input
           type="text"
           id="name"
@@ -36,7 +41,7 @@ const EmployeeForm = ({
       </div>
 
       <div className="mb-4">
-        <label className="block text-gray-700" htmlFor="email"> Email </label>
+        <label className="block text-light-1" htmlFor="email"> Email </label>
         <input
           type="email"
           id="email"
@@ -45,12 +50,54 @@ const EmployeeForm = ({
            focus:ring focus:ring-lime-400"
           {...register('email', { required: 'Email is required' })}
           placeholder="email"
-          required
         />
       </div>
 
       <div className="mb-4">
-        <label className="block text-gray-700" htmlFor="phone"> Phone Number </label>
+      <label className="block text-light-1" htmlFor="address"> Address </label>
+      <input
+        type="address"
+        id="address"
+        className="form-input mt-1 block w-full rounded-md text-dark-1 pt-2
+        border-indigo-200 border-x-indigo-500 focus:border-amber-500
+         focus:ring focus:ring-lime-400"
+        {...register('address', { required: 'Address is required' })}
+        placeholder="address"
+      />
+      <p className="mt-2 text-red-500 font-medium">
+          {errors.address && errors.address.message}
+        </p>
+      </div>
+    
+
+{/* */}
+    <div className="mb-4">
+      <label className="block text-gray-700" htmlFor="profile">
+        Profile Image
+      </label>
+      <input
+  type="file"
+  id="profile"
+  accept="image/*"
+  {...register("profile")}
+        className="form-input mt-1 block w-full rounded-md text-dark-1 pt-2 border-indigo-200 border-x-indigo-500 focus:border-amber-500 focus:ring focus:ring-lime-400"
+      />
+    </div>
+  
+{/*
+<div className="h-12 w-12 overflow-hidden bg-gray-300 rounded-full mb-6">
+          <Image
+            src={contact.profile}
+            alt="contact image"
+            className="object-cover"
+            width={48}
+            height={48}
+          />
+        </div>
+*/}
+
+      <div className="mb-4">
+        <label className="block text-light-1" htmlFor="phone"> Phone Number </label>
         <input
           type="number"
           id="phone"
@@ -60,8 +107,8 @@ const EmployeeForm = ({
            {...register('phone', {
             required: 'Phone Number is required',
             pattern: {
-              value: /^\d{11}$/,
-              message: 'Phone number must be 11 digits',
+              value: /^01\d{9}$/, // Regular expression pattern
+              message: 'Phone number must start with "01" and be 11 digits in total',
             },
           })}
           placeholder="Enter Phone Number"
@@ -155,6 +202,66 @@ const EmployeeForm = ({
           </button>
         </div>
       </div>
+      
+        {/*Project*/}
+      <div className="text-light-1">
+      <div className="content pb-[20px]">
+        <h1 className="pb-[10px]">Project:</h1>
+        {projectFields.map((field, index) => (
+          <div className="mb-4 p-4 rounded-lg shadow-lg" key={field.id}>
+            
+          <div className="mb-2">
+              <label className="block text-sm font-medium text-light-1"> Project Name </label>
+            <input
+              type="text"
+              {...register(`project[${index}].name`)}
+              placeholder="Enter Project name"
+              
+              className="form-input mt-2 block w-full rounded-md text-dark-1 pt-2
+              border-indigo-200 border-x-indigo-500 focus:border-amber-500
+               focus:ring focus:ring-lime-400"
+               />
+           </div>
+            
+           <div className="mb-2">
+              <label className="block text-sm font-medium text-light-1">Project Description</label>
+            <textarea
+              type="text"
+              {...register(`project[${index}].description`)}
+              placeholder="Enter Project Description"
+             
+              className="form-input mt-2 block w-full rounded-md text-dark-1 pt-4
+              border-gray-300 focus:border-blue-500 focus:ring focus:ring-lime-400"
+            />
+          </div>
+
+          <div className="mb-2">
+          <label className="block text-sm font-medium text-light-1">Project Link </label>
+            <input
+              type="text"
+              {...register(`project[${index}].link`)}
+              placeholder="Enter Project Link"     
+              className="form-input mt-2 block w-full rounded-md text-dark-1 pt-2
+               border-gray-300 focus:border-blue-500 focus:ring focus:ring-lime-400"
+            />
+       </div>
+
+        <button type="button" 
+            className=" bg-indigo-800 text-white px-2 py-1 rounded-md mr-2 outline outline-gray-50"
+            onClick={() => removeProject(index)}>
+              Remove
+            </button>
+          </div>
+        ))}
+
+        <button type="button" 
+        className=" bg-indigo-800 text-white px-2 py-1 rounded-md mr-2 outline outline-gray-50"
+         onClick={() => appendProject({})}>
+          Add More
+        </button>
+      </div>
+    </div>
+
 
       {/* Skills */}
       <div className="text-light-1">

@@ -46,12 +46,13 @@ const UserInfo = () => {
             userInfo.userType === "employer" ? "Employer" : "Employee"
           } Info`}
         />
-        <hr className="border-t-2 border-light-1 my-3 md:hidden " />
+        <hr className="border-t-2 border-light-1 my-3  " />
         {userInfo.userType === "employer" ? (
           <EmployerInfo employerInfo={userInfo} />
         ) : (
           <EmployeeInfo
             employeeInfo={userInfo}
+            //userImage={userInfo.image} // Pass the image URL as a prop
           />
         )}
         <button type="default"
