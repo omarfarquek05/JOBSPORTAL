@@ -12,9 +12,8 @@ import { SetCurrentUser } from "@/redux/usersSlice";
 import { useSelector, useDispatch } from 'react-redux'
 import Filters from '@/components/Filters';
 import moment from 'moment';
-import Banner from "@/components/Banner"
 import Footer from '@/components/Footer';
-import HeroCarousel from '@/components/HeroCarousel';
+
 
 export default function Home() {
    
@@ -60,15 +59,12 @@ export default function Home() {
 
   return (
     <main className="text-light-1">
-     {/*<Banner/>*/} 
     <h1 className='text-3xl  mb-1 text-gray-100 
     bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-indigo-500
      text-center pb-2'>
      <b>Welcome To Jobs Mela</b></h1>
      
     <hr className='border-dashed border-auto border-indigo-200 pb-3'/>
-
-    {/* <HeroCarousel/> */}
        
      <div className=''>
      <Filters filters={filters} setFilters={setFilters} getData={fetchJobs} />
