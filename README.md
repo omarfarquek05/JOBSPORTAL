@@ -1,5 +1,5 @@
-Project LINK : https://jobsportal-1f5pio3sb-omarfarquek05.vercel.app
-https://jobsportal-hrkj2749z-omarfarquek05.vercel.app
+Project LINK : https://jobsportal-cjua9dmcv-omarfarquek05.vercel.app/register
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
