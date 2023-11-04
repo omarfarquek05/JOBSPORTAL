@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import PageTitle from "@/components/PageTitle";
 import JobPostForm from '@/components/JobPostForm';
-import Loader from '@/components/Loader';
+import Loader from '@/app/Loader';
 import moment from "moment";
 import { SetCurrentUser } from "@/redux/usersSlice";
 import { useSelector, useDispatch } from 'react-redux'

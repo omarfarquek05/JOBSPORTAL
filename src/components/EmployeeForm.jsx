@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const EmployeeForm = ({
   register,
@@ -18,6 +19,7 @@ const EmployeeForm = ({
   projectFields,
   appendProject,
 removeProject,
+currentUser,
 
 }) => {
 
@@ -85,16 +87,19 @@ removeProject,
     </div>
   
 {/*
-<div className="h-12 w-12 overflow-hidden bg-gray-300 rounded-full mb-6">
+
+*/}
+     {currentUser?.profile && (
+      <div className="h-12 w-12 overflow-hidden bg-gray-300 rounded-full mb-6">
           <Image
-            src={contact.profile}
+            src={currentUser.profile}
             alt="contact image"
             className="object-cover"
             width={48}
             height={48}
           />
         </div>
-*/}
+  )}
 
       <div className="mb-4">
         <label className="block text-light-1" htmlFor="phone"> Phone Number </label>

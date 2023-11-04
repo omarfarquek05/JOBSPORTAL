@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { sidebarLinks } from "@/constants";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import Loader from "@/components/Loader";
+import Loader from "@/app/Loader";
 import { SetCurrentUser } from "@/redux/usersSlice";
 import { useSelector, useDispatch } from 'react-redux'
 

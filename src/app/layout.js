@@ -5,6 +5,7 @@ import Leftbar from '@/components/Navbars/Leftbar'
 import Buttombar from '@/components/Navbars/Buttombar'
 import ReduxProvider from "@/components/ReduxProvider";
 import ToastLayout from '@/components/ToastLayout'
+import Loader from '@/app/Loader'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
       <ReduxProvider>
       <ToastLayout>
+    
       <Topbar/>
       <main className='flex flex-row'>
       <Leftbar />
@@ -33,6 +35,7 @@ export default function RootLayout({ children }) {
       </section>
     </main>
     <Buttombar/>
+    
     </ToastLayout>
     </ReduxProvider>
       </body>

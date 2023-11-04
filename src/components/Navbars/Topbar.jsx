@@ -10,7 +10,7 @@ import { toast } from "react-hot-toast";
 
 import { useDispatch, useSelector } from "react-redux";
 import { SetCurrentUser } from "@/redux/usersSlice";
-import Loader from "@/components/Loader";
+import Loader from "@/app/Loader";
 import { SetLoading } from "@/redux/loadersSlice";
 
 
