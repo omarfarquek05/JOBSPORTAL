@@ -78,7 +78,7 @@ function Applications() {
           {applications.map((application) => (
             <tr key={application._id} >
               <td className="pr-3">{application._id}</td>
-              <td className="pr-3">{application.job.title}</td> 
+              <td className="pr-3">{application?.job?.title}</td> 
           {/*<td>{application.job?.user?.name}</td>*/}
               <td className="pr-3">{application.status}</td>
               <td className="pr-3">{moment(application.createdAt).format("DD/MM/YYYY")}</td>

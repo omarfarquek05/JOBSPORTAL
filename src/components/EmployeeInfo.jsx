@@ -8,13 +8,15 @@ function EmployeeInfo({ employeeInfo  }) {
     <div className="container mx-auto max-w-screen-md text-lime-50">
     <div className="flex flex-col items-center justify-center mt-5">
       <div className="flex flex-row items-center justify-center">
+      {/* */}
       <Image
-      src={employeeInfo.profile} // This should be a valid image URL
+      src={employeeInfo?.profile} // This should be a valid image URL
       alt="User Image"
-      width={110}
-      height={110}
+      width={100}
+      height={100}
       className="rounded-full ring ring-indigo-600 hover:ring-blue-500"
     />
+   
         <div className="ml-5">
           <h2 className="text-3xl font-bold">{employeeInfo.name }</h2>
           <h3 className="text-2xl font-medium pr-3"><i class="ri-mail-line mr-2"></i>{employeeInfo.email}</h3>

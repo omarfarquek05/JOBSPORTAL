@@ -14,8 +14,8 @@ export async function PUT(req) {
       const reqBody = await req.json();
 
        // Convert the image URL to a string.
-    if (reqBody.image) {
-      reqBody.image = JSON.stringify(reqBody.image);
+    if (reqBody.profile) {
+      reqBody.image = JSON.stringify(reqBody.profile);
     }
   
       // Find the user by ID and update their data with the request body.

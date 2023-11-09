@@ -25,7 +25,7 @@ const UserInfo = () => {
       setUserInfo(response.data.data);
     } catch (error) {
        console.log(error);
-      // message.error(error.message);
+       toast.error("error from userinfo");
     } finally {
       dispatch(SetLoading(false));
     }
@@ -35,38 +35,38 @@ const UserInfo = () => {
     fetchUserInfo();
   }, []);
 
-  console.log(fetchUserInfo);
+ 
+
+  // Check if userInfo is null, and render loading or error message accordingly
+  if (userInfo === null) {
+    return <div>Loading...</div>; // You can replace this with your own loading indicator
+  } else if (userInfo.error) {
+    return <div>Error: {userInfo.error.message}</div>; // Display an error message
+  }
 
   return (
   
-    userInfo && (
-      <div>
-        <PageTitle
-          title={`${
-            userInfo.userType === "employer" ? "Employer" : "Employee"
-          } Info`}
-        />
-        <hr className="border-t-2 border-light-1 my-3  " />
-        {userInfo.userType === "employer" ? (
-          <EmployerInfo employerInfo={userInfo} />
-        ) : (
-          <EmployeeInfo
-            employeeInfo={userInfo}
-            //userImage={userInfo.image} // Pass the image URL as a prop
-          />
-        )}
-        <button type="default"
-        className='bg-indigo-800 text-white px-2 py-1 rounded-md mr-2 mt-3
-         outline outline-gray-50 cursor-pointer'
-       onClick={() => router.back()}>
-        Back
-       </button>
-      </div>
-      
-    )
-    );
-    
-  
+    <div>
+    <PageTitle
+      title={`${
+        userInfo.userType === "employer" ? "Employer" : "Employee"
+      } Info`}
+    />
+    <hr className="border-t-2 border-light-1 my-3" />
+    {userInfo.userType === "employer" ? (
+      <EmployerInfo employerInfo={userInfo} />
+    ) : (
+      <EmployeeInfo employeeInfo={userInfo} />
+    )}
+    <button
+      className="bg-indigo-800 text-white px-2 py-1 rounded-md mr-2 mt-3 outline outline-gray-50 cursor-pointer"
+      onClick={() => router.back()}
+    >
+      Back
+    </button>
+  </div>
+);
+
 }
 
 export default UserInfo

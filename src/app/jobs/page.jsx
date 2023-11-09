@@ -42,38 +42,7 @@ const Jobs = () => {
          fetchJobs();
     },[])
 
-    // const columns = [
-    //   {
-    //     title: "Title",
-    //     dataIndex: "title",
-    //   },
-    //   {
-    //     title: "Posted On",
-    //     dataIndex: "createdAt",
-    //    // render: (text: any) => moment(text).format("DD-MM-YYYY HH:mm:ss"),
-    //   },
-    //   {
-    //     title: "Location",
-    //     dataIndex: "location",
-    //   },
-    //   {
-    //     title: "Job Type",
-    //     dataIndex: "jobType",
-    //   },
-    //   {
-    //     title: "Work Mode",
-    //     dataIndex: "workMode",
-    //   },
-    //   {
-    //     title: "Experience",
-    //     dataIndex: "experience",
-    //   },
-       
-    //   {
-    //     title: "Actions",
-    //   },
-  
-    //  ];
+   
     const deleteJob = async (jobId) => {
       const confirmDelete = window.confirm("Are you sure you want to delete this job?");
       

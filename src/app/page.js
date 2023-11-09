@@ -58,7 +58,13 @@ export default function Home() {
 
 
   return (
+    
     <main className="text-light-1">
+    {loading ? (
+      <Loader/>
+    ) : (<>
+      
+      
     <h1 className='text-3xl  mb-1 text-gray-100 
     bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-indigo-500
      text-center pb-2'>
@@ -115,7 +121,13 @@ export default function Home() {
   ))}
 </div>
    <hr className='border-dashed border-auto  border-b-indigo-500 pb-3'/>
+
+   
       <Footer/>
+
+      </> )}
     </main>
+   
+    
   )
 }

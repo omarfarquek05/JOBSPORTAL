@@ -19,7 +19,7 @@ const Profile = () => {
   const { currentUser } = useSelector((state) => state.users);
   const dispatch = useDispatch();
    const router = useRouter();
-
+   const [loading, setLoading] = useState(false);
   
    const { control, handleSubmit, watch, register, setValue, formState: { errors } } = useForm({
     defaultValues: async () => {
@@ -39,15 +39,15 @@ const Profile = () => {
         skills: currentUsers.skills,
         experience: currentUsers.experience,
         project: currentUser?.project,
-        profile: '', // Initialize profile field as empty
+       // profile: '', // Initialize profile field as empty
       };
-
+       {/*               
       // Check if user has previously uploaded a profile image
       if (currentUser?.profile) {
         // If there's a previously uploaded image, set it in defaultValues
         defaultValues.profile = currentUser.profile;
       }
-
+*/}
       return defaultValues;
     },
   });
@@ -73,7 +73,7 @@ const Profile = () => {
     name: 'project',
   });
 
-  const [loading, setLoading] = useState(false);
+  
  
   const updateProfileImage = async (data) => {
     try {
@@ -153,7 +153,9 @@ const Profile = () => {
     <div className="text-light-1">
       <PageTitle title="Profile" className="" />
 
-      <h1>{loading ? <Loader /> : ' '}</h1>
+      {loading ? (
+        <Loader/>
+      ) : (<>
 
       <form className="" onSubmit={handleSubmit(onSubmit)} >
      
@@ -190,7 +192,7 @@ const Profile = () => {
             <svg
               aria-hidden="true"
               role="status"
-              class="inline w-4 h-4 mr-3 text-white animate-spin"
+              className="inline w-4 h-4 mr-3 text-white animate-spin"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -216,6 +218,12 @@ const Profile = () => {
         )}
         </div>
       </form>
+
+        <button onClick={() => router.push("/resume")}
+        type="view"
+        className="bg-indigo-800 text-white px-2 py-1 rounded-md mr-2 outline outline-gray-50"
+        >View resume</button>
+         </> )}
     </div>
   );
 };
