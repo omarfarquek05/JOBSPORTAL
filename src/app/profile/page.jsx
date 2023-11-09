@@ -105,7 +105,7 @@ const Profile = () => {
   const updateUserData = async (data, imageUrl) => {
     try {
       const updatedData = { ...data, profile: imageUrl };
-      const response = await fetch("http://localhost:3000/api/users", {
+      const response = await fetch("/api/users", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
