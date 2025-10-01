@@ -1,8 +1,5 @@
 ![Screenshot (191)](https://github.com/omarfarquek05/JOBSPORTAL/assets/89341479/45c1cb41-49ac-4a14-8c21-6370ebfb99cb)
 
-Project LINK : https://jobsportal-cjua9dmcv-omarfarquek05.vercel.app/register
-
-
 # 🚀 Job Portal - Online Job Board Platform
 
 A comprehensive full-stack job portal application that connects employers with job seekers. Features advanced job search capabilities, role-based dashboards, real-time notifications, and complete job management functionality.
